@@ -1,0 +1,100 @@
+<div id="container" class="form-control" >
+  <h2>Payment Method</h2>
+  <br>
+  <form>
+    <div align="center">
+      <div>
+        <form>
+          <label class="radio-inline" style="margin-left: 50px">
+            <div class="custom-radio">
+              <span>Cash</span>
+            </div>
+            <input type="radio"
+                   value="3"
+                   name="radioOption"
+                   [(ngModel)]="payment.paymentMethod"
+                   (click)="setRadio('3')" checked>
+          </label>
+
+          <label class="radio-inline" style="margin-left: 50px">
+            <div class="custom-radio">
+              <span>Credit Card</span>
+            </div>
+            <input type="radio"
+                   value="4"
+                   name="radioOption"
+                   [(ngModel)]="payment.paymentMethod"
+                   (click)="setRadio('4')">
+          </label>
+
+          <label class="radio-inline" style="margin-left: 50px; padding-right: 30px">
+            <div class="custom-radio">
+              <span>Cheque</span>
+            </div>
+            <input type="radio"
+                   value="18"
+                   name="radioOption"
+                   [(ngModel)]="payment.paymentMethod"
+                   (click)="setRadio('18')">
+          </label>
+
+        </form>
+      </div>
+      <div >
+        <div class="col-md-8 col-md-offset-2 ">
+          <form name="cashForm">
+            <div class="form-group"
+                 *ngIf="isSelected('3')">
+            </div>
+          </form>
+        </div>
+
+        <div class="col-md-8 col-md-offset-2 " >
+          <form name="creditCardForm">
+            <div class="form-group"
+                 *ngIf="isSelected('4')">
+              <label>Credit Card Number</label>
+              <input type="text"
+                     class="form-control"
+                     minlength="12"
+                     maxlength="19"
+                     name="creditNumber"
+                     [(ngModel)]="payment.creditNumber"
+                     placeholder="Credit Card Number"
+                     pattern="/^[0-9]*$/">
+            </div>
+          </form>
+        </div>
+
+        <div class="col-md-8 col-md-offset-2 ">
+          <form name="chequeForm">
+            <div class="form-group"
+                 *ngIf="isSelected('18')">
+              <label>Cheque Number</label>
+              <input type="text"
+                     class="form-control"
+                     minlength="14"
+                     maxlength="14"
+                     name="chequeNumber"
+                     [(ngModel)]="payment.chequeNumber"
+                     placeholder="Cheque Number"
+                     pattern="/^[0-9]*$/">
+            </div>
+          </form>
+        </div>
+      </div><br>
+    </div>
+
+    <div align="center">
+      <button type="button"
+              id="submit_btn3"
+              class="clickBtn"> Back
+      </button>
+      <button type="button"
+              id="submit_btn4"
+              class="clickBtn"
+              (click)="onPaymentConfirmation()"> Next
+      </button>
+    </div>
+  </form>
+</div>

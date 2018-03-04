@@ -1,0 +1,134 @@
+<div style="margin-top: 100px; margin-bottom: 200px ;">
+  <h1> Vendor Transactions : </h1>
+  <br>
+  <div >
+    <mat-table  [dataSource]="dataSource">
+
+      <ng-container matColumnDef="AGENT_ID">
+        <mat-header-cell class="mat-header-cell" *matHeaderCellDef> Agent Id </mat-header-cell>
+        <mat-cell *matCellDef="let vendorTrans">
+          {{vendorTrans.AGENT_ID}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="CUSTOMER_ID">
+        <mat-header-cell class="mat-header-cell" *matHeaderCellDef> Customer Id </mat-header-cell>
+        <mat-cell  *matCellDef="let vendorTrans">
+          {{vendorTrans.CUSTOMER_ID}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="VENDOR_ID">
+        <mat-header-cell class="mat-header-cell" *matHeaderCellDef> Vendor Id </mat-header-cell>
+        <mat-cell  *matCellDef="let vendorTrans ">
+          {{vendorTrans.VENDOR_ID}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="ITEM_ID">
+        <mat-header-cell class="mat-header-cell" *matHeaderCellDef> Item Id </mat-header-cell>
+        <mat-cell  *matCellDef="let vendorTrans">
+          {{vendorTrans.ITEM_ID}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="TRX_DATE">
+        <mat-header-cell *matHeaderCellDef> Trx Date </mat-header-cell>
+        <mat-cell  *matCellDef="let vendorTrans">
+          {{vendorTrans.TRX_DATE}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="STATUS">
+        <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+        <mat-cell  *matCellDef="let vendorTrans">
+          {{vendorTrans.STATUS}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="EXP_ARRIVAL_TIME">
+        <mat-header-cell *matHeaderCellDef> Exp Arrival Time </mat-header-cell>
+        <mat-cell  *matCellDef="let vendorTrans">
+          {{vendorTrans.EXP_ARRIVAL_TIME}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="FEEDBACK">
+        <mat-header-cell *matHeaderCellDef> FeedBack </mat-header-cell>
+        <mat-cell  *matCellDef="let vendorTrans">
+          {{vendorTrans.FEEDBACK}}
+        </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="CHECKIN_FLAG">
+        <mat-header-cell *matHeaderCellDef> Check In Flag </mat-header-cell>
+        <mat-cell  *matCellDef="let vendorTrans">
+          {{vendorTrans.CHECKIN_FLAG}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="NOTIFICATION_FLAG">
+        <mat-header-cell *matHeaderCellDef> Notification Flag </mat-header-cell>
+        <mat-cell  *matCellDef="let vendorTrans">
+          {{vendorTrans.NOTIFICATION_FLAG}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="NOTIFICATION_TIME">
+        <mat-header-cell *matHeaderCellDef> Notification Time </mat-header-cell>
+        <mat-cell  *matCellDef="let vendorTrans">
+          {{vendorTrans.NOTIFICATION_TIME}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="ORDER_COMPLETION_TIME">
+        <mat-header-cell *matHeaderCellDef> Order Completion Time </mat-header-cell>
+        <mat-cell  *matCellDef="let vendorTrans">
+          {{vendorTrans.ORDER_COMPLETION_TIME}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="PAYMENT_ID">
+        <mat-header-cell *matHeaderCellDef> Payment Id </mat-header-cell>
+        <mat-cell  *matCellDef="let vendorTrans">
+          {{vendorTrans.PAYMENT_ID}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="AMOUNT_PAID">
+        <mat-header-cell *matHeaderCellDef> Amount Paid </mat-header-cell>
+        <mat-cell *matCellDef="let vendorTrans">
+          {{vendorTrans.AMOUNT_PAID}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="INVOICE_NO">
+        <mat-header-cell *matHeaderCellDef> Invoice No </mat-header-cell>
+        <mat-cell  *matCellDef="let vendorTrans">
+          {{vendorTrans.INVOICE_NO}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="ACTION">
+        <mat-header-cell class="mat-header-cell" *matHeaderCellDef> Action </mat-header-cell>
+        <mat-cell class="mat-cell" *matCellDef="let vendorTrans">
+        {{vendorTrans.ACTION}}
+          <select class="form-control" name="reason" >
+            <option *ngFor="let food of foods"
+                    value="{{food.value}}">
+              {{food.viewValue}}
+            </option>
+          </select>
+
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    </mat-table>
+  </div>
+
+</div>
+

@@ -1,0 +1,51 @@
+<div class="form-control">
+  <div style="padding-top:50px ;padding-bottom: 50px " align="center">
+    <h2> Select Catalog </h2><br>
+    <select class="form-control" name="catalog" (change)="onSelect()" style="size: 100px">
+      <option value="">Select Catalog</option>
+      <!--<option *ngFor="let catalog of catalogs.CatalogName"
+              value="{{catalog.CatalogID}}">
+        {{catalog}}-->
+      <option *ngFor="let catalog of catalogs"
+              value="{{catalog.value}}">
+        {{catalog.viewValue}}
+      </option>
+    </select>
+  </div>
+  <hr>
+  <br><br>
+  <div  *ngIf="showNext === 'itemTable'" class="form-control">
+    <h2> Catalog Items </h2><br>
+    <table class="table table-bordred table-striped">
+      <thead>
+       <tr style="background-color: #e60000">
+         <th>Item Name</th>
+         <th>Selected</th>
+       </tr>
+       <!--<tr *ngFor="let item of items.ItemName">
+         <td>{{item}}</td>
+       </tr>-->
+       <tr *ngFor="let item of itemsex">
+         <td >{{item.viewValue}}</td>
+         <td>
+           <input type="checkbox" name="selected">
+         </td>
+       </tr>
+      </thead>
+    </table>
+    <div align="center">
+      <button type="reset"
+              id="submit_btn1"
+              class="btn" > Clear
+      </button>
+      <button type="button"
+              id="submit_btn2"
+              class="btn"
+              routerLink="/payment"> Next
+      </button>
+    </div>
+  </div>
+
+</div>
+
+
